@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <COMReference Include="FiScnLib">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>17</VersionMinor>
+      <VersionMajor>9</VersionMajor>
+      <Guid>383df550-b568-4e66-99c6-8abbee951537</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxFiScnLib">
+      <WrapperTool>aximp</WrapperTool>
+      <VersionMinor>17</VersionMinor>
+      <VersionMajor>9</VersionMajor>
+      <Guid>383df550-b568-4e66-99c6-8abbee951537</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>
