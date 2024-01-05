@@ -1,11 +1,13 @@
+using System.Configuration;
+
 namespace Hisss
 {
     public partial class MainForm : Form
     {
         public MainForm(Configuration config)
         {
-            config.apply(axFiScn1);
             InitializeComponent();
+            Setup_Scanner(config);
         }
 
         private void On_Form_Load(object sender, EventArgs e)
@@ -13,7 +15,6 @@ namespace Hisss
             int status;
             int ErrorCode;
             //Open the scanner (method)
-            axFiScn1.OpenScanner2(this.Handle.ToInt32()); //OpenScanner2 is recommended
             status = axFiScn1.StartScan(this.Handle.ToInt32());
             //An error occurred during a scan
             if (status == -1)
@@ -24,6 +25,13 @@ namespace Hisss
             }
             //Close the scanner (method)
             axFiScn1.CloseScanner(this.Handle.ToInt32());
+        }
+
+        private void Setup_Scanner(Configuration scanner_config)
+        {
+            axFiScn1.OpenScanner2(this.Handle.ToInt32());
+
+            scanner_config.Apply(axFiScn1);
         }
     }
 }
