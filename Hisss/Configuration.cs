@@ -1,4 +1,7 @@
-﻿using CommandLine;
+﻿//Copyright(c) 2024 Nicolas "Fly" Sheridan
+//This code is licensed under MIT license (see LICENSE.txt for details)
+
+using CommandLine;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;

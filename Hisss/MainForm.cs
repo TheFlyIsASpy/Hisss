@@ -1,3 +1,5 @@
+//Copyright(c) 2024 Nicolas "Fly" Sheridan
+//This code is licensed under MIT license (see LICENSE.txt for details)
 using System.Configuration;
 
 namespace Hisss
