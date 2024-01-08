@@ -10,9 +10,16 @@ namespace Hisss
         {
             InitializeComponent();
             Setup_Scanner(config);
+            Scan();
+        }
+        private void Setup_Scanner(Configuration scanner_config)
+        {
+            axFiScn1.OpenScanner2(this.Handle.ToInt32());
+
+            scanner_config.Apply(axFiScn1);
         }
 
-        private void On_Form_Load(object sender, EventArgs e)
+        private void Scan()
         {
             int status;
             int ErrorCode;
@@ -27,13 +34,7 @@ namespace Hisss
             }
             //Close the scanner (method)
             axFiScn1.CloseScanner(this.Handle.ToInt32());
-        }
-
-        private void Setup_Scanner(Configuration scanner_config)
-        {
-            axFiScn1.OpenScanner2(this.Handle.ToInt32());
-
-            scanner_config.Apply(axFiScn1);
+            this.Close();
         }
     }
 }

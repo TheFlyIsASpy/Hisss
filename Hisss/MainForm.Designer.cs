@@ -36,21 +36,20 @@
             // axFiScn1
             // 
             axFiScn1.Enabled = true;
-            axFiScn1.Location = new Point(364, 192);
+            axFiScn1.Location = new Point(33, 23);
             axFiScn1.Name = "axFiScn1";
             axFiScn1.OcxState = (AxHost.State)resources.GetObject("axFiScn1.OcxState");
             axFiScn1.Size = new Size(48, 48);
             axFiScn1.TabIndex = 0;
             // 
-            // Form1
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(axFiScn1);
-            Name = "Form1";
-            Text = "Form1";
-            Load += On_Form_Load;
+            Name = "MainForm";
+            Text = "Hisss";
             ((System.ComponentModel.ISupportInitialize)axFiScn1).EndInit();
             ResumeLayout(false);
         }
