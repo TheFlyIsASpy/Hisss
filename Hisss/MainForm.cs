@@ -34,7 +34,7 @@ namespace Hisss
             }
             //Close the scanner (method)
             axFiScn1.CloseScanner(this.Handle.ToInt32());
-            this.Close();
+            Environment.Exit(0);
         }
     }
 }
