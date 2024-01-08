@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Hisss": {
+      "commandName": "Project"
+    },
+    "Arguments": {
+      "commandName": "Project",
+      "commandLineArgs": "-h"
+    }
+  }
+}
