@@ -33,7 +33,7 @@ namespace Hisss
         [Option("overwrite", Required = false, Default = (short)1, HelpText = "Sets whether or not to overwrite files.\n0 - OFF(Mode0) Does not overwrite\r\n(When file type is TIFF, JPEG or BMP without using “Image\r\nProcessing Software Option “, processes the number of sheets\r\nspecified for the ScanCount property up to the last sheet even if\r\na file with the same name exists.)\r\n1 - ON Overwrites.\r\n2 - Confirm(Mode0) Displays the confirmation message box. (Displayed even in\r\nSilentMode.)\r\n3 - OFF(Mode1) Does not overwrite. (If a file with the same name exists, aborts\r\nscanning.)\r\n4 - Confirm(Mode1) Displays the confirmation message box.\r\n(Turned to the same operation as \"3 - OFF(Mode1)\" in\r\nSilentMode.)")]
         public short Overwrite { get; set; }
         
-        [Option("path", Required = false, HelpText = "Sets the path and file name for storing the image. (Extension not included)")]
+        [Option("path", Required = false, Default = null, HelpText = "Sets the path and file name for storing the image. (Extension not included)")]
         public string FileName { get; set; }
 
         [Option("pixel_type", Required = false, Default = (short)1, HelpText = "Sets the pixel type.\n0 - Black & White Binary (Black and White)\r\n1 - Grayscale Grayscale\r\n2 - RGB RGB color\r\n3 - Automatic Auto color detection\r\n4 - SwitchByCodeSheet Switching by code sheets")]

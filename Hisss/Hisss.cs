@@ -36,7 +36,11 @@ namespace Hisss
                 }
                 else
                 {
-                    c.FileName = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\scan";
+                    if (c.FileName == null)
+                    {
+                        c.FileName = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\scan";
+                    }
+                    
                     try
                     {
                         string jstring = File.ReadAllText("%userprofile%\\hisss_config.json");
@@ -45,6 +49,7 @@ namespace Hisss
                         Console.WriteLine("Failed to read json configuration. If you don't have one, ignore this error. Otherwise: \n\n" +  ex.ToString());    
                     }
                     var form = new MainForm(c);
+                    return;
                 }
             });
 

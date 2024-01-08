@@ -1,7 +1,8 @@
 //Copyright(c) 2024 Nicolas "Fly" Sheridan
 //This code is licensed under MIT license (see LICENSE.txt for details)
+using System;
 using System.Configuration;
-
+using System.Windows;
 namespace Hisss
 {
     public partial class MainForm : Form
@@ -30,11 +31,10 @@ namespace Hisss
             {
                 //Display the error information
                 ErrorCode = axFiScn1.ErrorCode;
-                MessageBox.Show("An error occurred during a scan.\nError code: 0x" + ErrorCode.ToString("X8"));
+                MessageBox.Show("An error occurred during a scan.\nError code: 0x" + ErrorCode.ToString("X8"), "Exception", MessageBoxButtons.OK, MessageBoxIcon.None, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
             //Close the scanner (method)
             axFiScn1.CloseScanner(this.Handle.ToInt32());
-            Environment.Exit(0);
         }
     }
 }
