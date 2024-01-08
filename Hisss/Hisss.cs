@@ -4,6 +4,7 @@
 using CommandLine;
 using CommandLine.Text;
 using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace Hisss
 {
@@ -22,6 +23,7 @@ namespace Hisss
 
             parser_result.WithParsed<Configuration>(c =>
             {
+                ConsoleRegister.RegisterGUIConsoleWriter();
                 if (c.help)
                 {
                     var help_text = HelpText.AutoBuild(parser_result, h => {
@@ -42,7 +44,6 @@ namespace Hisss
                     }catch (Exception ex) {
                         Console.WriteLine("Failed to read json configuration. If you don't have one, ignore this error. Otherwise: \n\n" +  ex.ToString());    
                     }
-
                     var form = new MainForm(c);
                 }
             });
