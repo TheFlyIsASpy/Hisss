@@ -88,6 +88,37 @@ namespace Hisss {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The vertical line on the Carrier
+        ///Sheet not sensed. If error persists contact ricoh support.
+        /// </summary>
+        public static string _1001 {
+            get {
+                return ResourceManager.GetString("1001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The horizontal line on the Carrier
+        ///Sheet not sensed, If error persists contact ricoh support.
+        /// </summary>
+        public static string _1002 {
+            get {
+                return ResourceManager.GetString("1002", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The material you scanned is not a Carrier
+        ///Sheet. Load the Carrier Sheet again, and
+        ///then retry..
+        /// </summary>
+        public static string _1003 {
+            get {
+                return ResourceManager.GetString("1003", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Abnormal device drive system, The carrier unit may be locked or the part should be replaced..
         /// </summary>
         public static string _11 {
@@ -151,6 +182,21 @@ namespace Hisss {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The specified read area is not
+        ///suitable for the document size when
+        ///the AutoBorderDetection function
+        ///and Read Area Specification
+        ///function are combined.
+        ///Or the document detection sensor
+        ///error occurs..
+        /// </summary>
+        public static string _17104896 {
+            get {
+                return ResourceManager.GetString("17104896", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid parameter field, restart computer and scanner and try again.
         /// </summary>
         public static string _18 {
@@ -183,6 +229,17 @@ namespace Hisss {
         public static string _20 {
             get {
                 return ResourceManager.GetString("20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified data source (Image Processing
+        ///Software Option) does not support the
+        ///Carrier Sheet..
+        /// </summary>
+        public static string _2000 {
+            get {
+                return ResourceManager.GetString("2000", resourceCulture);
             }
         }
         
@@ -292,6 +349,59 @@ namespace Hisss {
         public static string _32 {
             get {
                 return ResourceManager.GetString("32", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Internal initialization for Java is not called.
+        ///Call internal initialization for Java..
+        /// </summary>
+        public static string _33554433 {
+            get {
+                return ResourceManager.GetString("33554433", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An Java SDK environmental error occurred. Check if the SDK is installed properly.
+        /// </summary>
+        public static string _33554434 {
+            get {
+                return ResourceManager.GetString("33554434", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The method is being executed in another
+        ///form. Try again after the current execution of
+        ///the method has completed..
+        /// </summary>
+        public static string _33554435 {
+            get {
+                return ResourceManager.GetString("33554435", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Image Processing Software Option is not
+        ///installed. Install the IPSO.
+        /// </summary>
+        public static string _33554436 {
+            get {
+                return ResourceManager.GetString("33554436", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to acquire the total
+        ///number/names/numbers of templates in the
+        ///Image Processing Software Option. Check if
+        ///the Image Processing Software Option is
+        ///installed properly..
+        /// </summary>
+        public static string _33554437 {
+            get {
+                return ResourceManager.GetString("33554437", resourceCulture);
             }
         }
         
@@ -597,6 +707,27 @@ namespace Hisss {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Feed mode switching detected, check feed mode switch.
+        /// </summary>
+        public static string _68 {
+            get {
+                return ResourceManager.GetString("68", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Documents are detected in both
+        ///the ADF paper chute and the Return
+        ///path opening.
+        ///Or, a paper jam has occurred.
+        /// </summary>
+        public static string _69 {
+            get {
+                return ResourceManager.GetString("69", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Motor fuse for ADF is blown.
         /// </summary>
         public static string _7 {
@@ -620,6 +751,24 @@ namespace Hisss {
         public static string _9 {
             get {
                 return ResourceManager.GetString("9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System environment error, restart computer and scanner. If error persists contact Ricoh support.
+        /// </summary>
+        public static string _98 {
+            get {
+                return ResourceManager.GetString("98", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Internal error, restart scanner and computer, if error persists contact Ricoh support.
+        /// </summary>
+        public static string _99 {
+            get {
+                return ResourceManager.GetString("99", resourceCulture);
             }
         }
     }
