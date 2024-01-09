@@ -267,7 +267,7 @@ support the DeviceOnline function</value>
   <data name="39" xml:space="preserve">
     <value>Paper feed error, or all the
 document pages were determined
-to be blank.</value>
+to be blank. Or user canceled on retry.</value>
   </data>
   <data name="4" xml:space="preserve">
     <value>ADF cover, or endorser / imprinter cover is open</value>

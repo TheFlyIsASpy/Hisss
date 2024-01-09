@@ -456,7 +456,7 @@ namespace Hisss {
         /// <summary>
         ///   Looks up a localized string similar to Paper feed error, or all the
         ///document pages were determined
-        ///to be blank..
+        ///to be blank. Or user canceled on retry..
         /// </summary>
         public static string _39 {
             get {
