@@ -23,6 +23,10 @@ namespace Hisss
             {
                 args[i] = args[i].Trim();
                 args[i] = args[i].ToLower();
+                if (args[i].Equals("--help"))
+                {
+                    args[i] = "-h";
+                }
             }
 
             var parser_result = Parser.Default.ParseArguments<Configuration>(args);
