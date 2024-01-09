@@ -2,7 +2,7 @@
   "profiles": {
     "Hisss": {
       "commandName": "Project",
-      "commandLineArgs": "--path C:\\Users\\LizardDev\\Desktop\\test --ui"
+      "commandLineArgs": "--Path C:\\Users\\LizardDev\\Desktop\\test -i"
     },
     "Arguments": {
       "commandName": "Project",

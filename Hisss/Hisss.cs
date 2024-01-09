@@ -19,6 +19,12 @@ namespace Hisss
 
             string version = "1.0";
 
+            for(int i = 0; i < args.Length; i++) 
+            {
+                args[i] = args[i].Trim();
+                args[i] = args[i].ToLower();
+            }
+
             var parser_result = Parser.Default.ParseArguments<Configuration>(args);
 
             parser_result.WithParsed<Configuration>(c =>
