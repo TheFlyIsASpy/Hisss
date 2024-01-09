@@ -13,12 +13,11 @@ namespace Hisss
         [STAThread]
         static void Main(String[] args)
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+
             ApplicationConfiguration.Initialize();
 
             string version = "1.0";
-
+            
             for(int i = 0; i < args.Length; i++) 
             {
                 args[i] = args[i].Trim();
@@ -28,8 +27,16 @@ namespace Hisss
                     args[i] = "-h";
                 }
             }
+            
+            var parser = new Parser(s =>
+            {
+                s.AllowMultiInstance = true;
+                s.AutoHelp = true;
+                s.CaseSensitive = false;
+                s.IgnoreUnknownArguments = true;
+            });
 
-            var parser_result = Parser.Default.ParseArguments<Configuration>(args);
+            var parser_result = parser.ParseArguments<Configuration>(args);
 
             parser_result.WithParsed<Configuration>(c =>
             {
