@@ -53,7 +53,7 @@ namespace Hisss
                     
                     try
                     {
-                        string jstring = File.ReadAllText("%userprofile%\\hisss_config.json");
+                        string jstring = File.ReadAllText("%userprofile%\\hisss_overrides.json");
                         JsonConvert.PopulateObject(jstring, c);
                     }catch (Exception ex) {
                         Console.WriteLine("Failed to read json configuration. If you don't have one, ignore this error. Otherwise: \n\n" +  ex.ToString());    
