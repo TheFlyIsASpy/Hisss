@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="0" xml:space="preserve">
+    <value>No error reported, operation succeded</value>
+  </data>
+  <data name="1" xml:space="preserve">
+    <value>Initialization in progress. Try again after the device becomes ready.</value>
+  </data>
+  <data name="10" xml:space="preserve">
+    <value>Fuse for Endorser or Imprinter is blown</value>
+  </data>
+  <data name="11" xml:space="preserve">
+    <value>Abnormal device drive system, The carrier unit may be locked or the part should be replaced.</value>
+  </data>
+  <data name="12" xml:space="preserve">
+    <value>Abnormal light level</value>
+  </data>
+  <data name="13" xml:space="preserve">
+    <value>Internal target error, cannot control SPC</value>
+  </data>
+  <data name="14" xml:space="preserve">
+    <value>Endorser / Imprinter error</value>
+  </data>
+  <data name="15" xml:space="preserve">
+    <value>Invalid command, An illegal process in the driver or control, or an unknown device failure.</value>
+  </data>
+  <data name="16" xml:space="preserve">
+    <value>Unknown code in the CDB field</value>
+  </data>
+  <data name="17" xml:space="preserve">
+    <value>Unsupported logical unit. An illegal process in the driver or control, or an unknown device failure. Restart computer and scanner and try again</value>
+  </data>
+  <data name="18" xml:space="preserve">
+    <value>Invalid parameter field, restart computer and scanner and try again</value>
+  </data>
+  <data name="19" xml:space="preserve">
+    <value>Window ID combination error, restart computer and scanner and try again</value>
+  </data>
+  <data name="2" xml:space="preserve">
+    <value>Special document or patch code document was detected.</value>
+  </data>
+  <data name="20" xml:space="preserve">
+    <value>Sequence error, restart computer and scanner and try again</value>
+  </data>
+  <data name="21" xml:space="preserve">
+    <value>Device is being reset</value>
+  </data>
+  <data name="22" xml:space="preserve">
+    <value>Image transfer error, reduce scan image size and try again</value>
+  </data>
+  <data name="23" xml:space="preserve">
+    <value>SCSI parity error, (SCSI card, SCSI
+cable, etc.)</value>
+  </data>
+  <data name="24" xml:space="preserve">
+    <value>Source manager load error, is TWAIN installed?</value>
+  </data>
+  <data name="25" xml:space="preserve">
+    <value>Source manager load error, is TWAIN installed?</value>
+  </data>
+  <data name="26" xml:space="preserve">
+    <value>Data source open error, device may not be on or twain  may not be installed or in use by another app</value>
+  </data>
+  <data name="27" xml:space="preserve">
+    <value>Data source enable error, scanner may be busy or cover is on</value>
+  </data>
+  <data name="29" xml:space="preserve">
+    <value>Cannot find the connected device</value>
+  </data>
+  <data name="3" xml:space="preserve">
+    <value>A paper jam has occurred</value>
+  </data>
+  <data name="30" xml:space="preserve">
+    <value>Transfer mode is not supported</value>
+  </data>
+  <data name="31" xml:space="preserve">
+    <value>File type is not supported</value>
+  </data>
+  <data name="32" xml:space="preserve">
+    <value>Cannot create a file, check path</value>
+  </data>
+  <data name="34" xml:space="preserve">
+    <value>Data source does not support the
+configuration screen only mode</value>
+  </data>
+  <data name="35" xml:space="preserve">
+    <value>Window handle of the application is
+invalid</value>
+  </data>
+  <data name="36" xml:space="preserve">
+    <value>Data source in use does not
+support the DeviceOnline function</value>
+  </data>
+  <data name="37" xml:space="preserve">
+    <value>ADF is not supported by this scanner</value>
+  </data>
+  <data name="38" xml:space="preserve">
+    <value>Flatbed (FB) is not supported by this scanner</value>
+  </data>
+  <data name="39" xml:space="preserve">
+    <value>Paper feed error, or all the
+document pages were determined
+to be blank.</value>
+  </data>
+  <data name="4" xml:space="preserve">
+    <value>ADF cover, or endorser / imprinter cover is open</value>
+  </data>
+  <data name="40" xml:space="preserve">
+    <value>Paper eject error (or the ClearPage
+function is not supported)</value>
+  </data>
+  <data name="41" xml:space="preserve">
+    <value>PRODUCT FAMILY is not
+"FUJITSU" or “PaperStream IP”</value>
+  </data>
+  <data name="42" xml:space="preserve">
+    <value>Canceled by the user, or detected
+an error which causes the device to
+be unable to continue scanning. insufficient disk space, pattern file error,
+insufficient memory, image transfer error,
+etc.</value>
+  </data>
+  <data name="43" xml:space="preserve">
+    <value>Driver is in use by another
+application</value>
+  </data>
+  <data name="44" xml:space="preserve">
+    <value>Insufficient memory, reduce image scan size</value>
+  </data>
+  <data name="45" xml:space="preserve">
+    <value>Insufficient disk space, or file
+writing error</value>
+  </data>
+  <data name="46" xml:space="preserve">
+    <value>Access to path denied or save file is in use</value>
+  </data>
+  <data name="47" xml:space="preserve">
+    <value>File save environment error</value>
+  </data>
+  <data name="48" xml:space="preserve">
+    <value>No write privileges to the file</value>
+  </data>
+  <data name="49" xml:space="preserve">
+    <value>File name is not specified</value>
+  </data>
+  <data name="5" xml:space="preserve">
+    <value>No more documents left</value>
+  </data>
+  <data name="50" xml:space="preserve">
+    <value>Specified path is invalid</value>
+  </data>
+  <data name="51" xml:space="preserve">
+    <value>No write privileges to the specified
+directory</value>
+  </data>
+  <data name="52" xml:space="preserve">
+    <value>Not the NegotiateCapabilities
+event. Call the GetCapability or SetCapability
+method using the NegotiateCapabilities
+event.</value>
+  </data>
+  <data name="53" xml:space="preserve">
+    <value>The parameter specified for the
+GetCapability method is invalid</value>
+  </data>
+  <data name="54" xml:space="preserve">
+    <value>Detected paper multi-feed or
+double-feed)</value>
+  </data>
+  <data name="55" xml:space="preserve">
+    <value>Anomaly in IPC option</value>
+  </data>
+  <data name="56" xml:space="preserve">
+    <value>ADF setup error, roller may be attached incorrectly</value>
+  </data>
+  <data name="57" xml:space="preserve">
+    <value>Imprinter (Endorser) print area
+specification error</value>
+  </data>
+  <data name="58" xml:space="preserve">
+    <value>Check Imprinter (Endorser) ink
+cartridge</value>
+  </data>
+  <data name="59" xml:space="preserve">
+    <value>FeederLoaded method is not
+supported, twain driver may be old</value>
+  </data>
+  <data name="6" xml:space="preserve">
+    <value>Motor fuse for FB is blown</value>
+  </data>
+  <data name="61" xml:space="preserve">
+    <value>Abnormal skew detected, document is slanted</value>
+  </data>
+  <data name="62" xml:space="preserve">
+    <value>Error in specified scan area, scan area or document size invalid</value>
+  </data>
+  <data name="7" xml:space="preserve">
+    <value>Motor fuse for ADF is blown</value>
+  </data>
+  <data name="8" xml:space="preserve">
+    <value>Fuse for heater is blown</value>
+  </data>
+  <data name="9" xml:space="preserve">
+    <value>Fuse for lamp is blown</value>
+  </data>
+</root>
