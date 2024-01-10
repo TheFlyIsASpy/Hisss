@@ -18,37 +18,37 @@ namespace Hisss
         [Option('h', Required = false, Default = false, HelpText = "Prints this help menu")]
         public bool help { get; set; }
 
-        [Option("log_path", Required = false, Default = null, HelpText = "(Default: %temp%\\hisss.log) Changes the path to save logs to. WARNING: STARLIMS reads this log file to determine if scanning is done, change in starlims if you change here.")]
+        [Option("log_path", Required = false, Default = null, HelpText = "(Default: %temp%\\hisss.log) Changes the path to save logs to.\nWARNING: STARLIMS reads this log file to determine if scanning is done, change in starlims if you change here.")]
         public string? LogPath { get; set; }
 
-        [Option("automatic_rotate_mode", Required = false, Default = (short)0, HelpText = "Sets a mode for detecting the orientation of an image when an image is automatically\r\nrotated.\n0 - Standard Standard\r\n1 - Custom Rotation based on the reference area\n")]
+        [Option("automatic_rotate_mode", Required = false, Default = (short)0, HelpText = "Sets a mode for detecting the orientation of an image when an image is automatically rotated.\n0 - Standard Standard\n1 - Custom Rotation based on the reference area\n")]
         public short AutomaticRotateMode { get; set; }
         
-        [Option("feed_method", Required = false, Default = (short)1, HelpText = "Sets the paper feed method.\n0 - Flatbed Flatbed\r\n1 - ADF ADF(Face scan)")]
+        [Option("feed_method", Required = false, Default = (short)1, HelpText = "Sets the paper feed method.\n0 - Flatbed \n1 - ADF (Face scan)")]
         public short PaperSupply { get; set; }
 
-        [Option("format", Required = false, Default = (short)4, HelpText = "Sets the file format.\n0 - BMP Bitmap file\r\n1 - TIFF TIFF file\r\n2 - Multipage TIFF Multipage TIFF file\r\n3 - JPEG JPEG file\r\n4 - PDF PDF file\r\n5 - Multipage PDF Multipage PDF file\r\n6 - Multi Image Output Multi-image output(Black and white: TIFF file, Others: JPEG\r\nfile)\r\n7 - Auto Color Detection Auto color detection(Black and white: TIFF file, Others: JPEG\r\nfile)")]
+        [Option("format", Required = false, Default = (short)4, HelpText = "Sets the file format.\n0 - BMP Bitmap file\n1 - TIFF file\n2 - Multipage TIFF file\n3 - JPEG file\n4 - PDF file\n5 - Multipage PDF file\n6 - Multi Image Output\n(Black and white: TIFF file, Others: JPEG file)\n7 - Auto Color Detection\n(Black and white: TIFF file, Others: JPEG file)")]
         public short FileType { get; set; }
 
         [Option('i', Required = false, Default = false, HelpText = "Show the progress indicator while scanning.")]
         public bool Indicator { get; set; }
 
-        [Option("overwrite", Required = false, Default = (short)1, HelpText = "Sets whether or not to overwrite files.\n0 - OFF(Mode0) Does not overwrite\r\n(When file type is TIFF, JPEG or BMP without using “Image\r\nProcessing Software Option “, processes the number of sheets\r\nspecified for the ScanCount property up to the last sheet even if\r\na file with the same name exists.)\r\n1 - ON Overwrites.\r\n2 - Confirm(Mode0) Displays the confirmation message box. (Displayed even in\r\nSilentMode.)\r\n3 - OFF(Mode1) Does not overwrite. (If a file with the same name exists, aborts\r\nscanning.)\r\n4 - Confirm(Mode1) Displays the confirmation message box.\r\n(Turned to the same operation as \"3 - OFF(Mode1)\" in\r\nSilentMode.)")]
+        [Option("overwrite", Required = false, Default = (short)1, HelpText = "Sets whether or not to overwrite files.\n\n0 - OFF (Mode0) Does not overwrite\n(When file type is TIFF, JPEG or BMP without using \"Image Processing Software Option\", processes the number of sheets specified for the ScanCount property up to the last sheet even if a file with the same name exists.)\n\n1 - ON Overwrites.\n\n2 - Confirm (Mode0) Displays the confirmation message box.\n(Displayed even in SilentMode.)\n\n3 - OFF (Mode1) Does not overwrite.\n(If a file with the same name exists, aborts scanning.)\n\n4 - Confirm (Mode1) Displays the confirmation message box.\n(Turned to the same operation as \"3 - OFF (Mode1)\" in SilentMode.)")]
         public short Overwrite { get; set; }
         
-        [Option("path", Required = false, Default = null, HelpText = "(Default: %temp%\\scan001.{filetype}) Sets the path and file name for storing the image. (Extension not included)")]
+        [Option("path", Required = false, Default = null, HelpText = "(Default: %temp%\\scan001.{filetype}) Sets the path and file name for storing the image.\n(Don't include extension in your argument only filename)")]
         public string? FileName { get; set; }
 
-        [Option("pixel_type", Required = false, Default = (short)1, HelpText = "Sets the pixel type.\n0 - Black & White Binary (Black and White)\r\n1 - Grayscale Grayscale\r\n2 - RGB RGB color\r\n3 - Automatic Auto color detection\r\n4 - SwitchByCodeSheet Switching by code sheets")]
+        [Option("pixel_type", Required = false, Default = (short)1, HelpText = "Sets the pixel type.\n0 - Black & White Binary (Black and White)\n1 - Grayscale Grayscale\n2 - RGB RGB color\n3 - Automatic Auto color detection\n4 - SwitchByCodeSheet Switching by code sheets")]
         public short PixelType { get; set; }
         
-        [Option("resolution", Required = false, Default = (short)2, HelpText = "Specifies the scan resolution.\n0 - 200x200 [dpi]\r\n1 - 240x240 [dpi]\r\n2 - 300x300 [dpi]\r\n3 - 400x400 [dpi]\r\n4 - 500x500 [dpi]\r\n5 - 600x600 [dpi]\r\n6 - 700x700 [dpi]\r\n7 - 800x800 [dpi]\r\n9 - 1200x1200 [dpi]")]
+        [Option("resolution", Required = false, Default = (short)2, HelpText = "Specifies the scan resolution.\n0 - 200x200 [dpi]\n1 - 240x240 [dpi]\n2 - 300x300 [dpi]\n3 - 400x400 [dpi]\n4 - 500x500 [dpi]\n5 - 600x600 [dpi]\n6 - 700x700 [dpi]\n7 - 800x800 [dpi]\n9 - 1200x1200 [dpi]")]
         public short Resolution { get; set; }
 
-        [Option("ui", Required = false, Default = false, HelpText = "Display the source user interface (UI).")]
+        [Option("ui", Required = false, Default = false, HelpText = "Display the full driver user interface to scan.")]
         public bool ShowSourceUI { get; set; }
 
-        [Option("AutoProfile", Required = false, Default = (short)1, HelpText = "Sets whether to identify a scanned form and apply a profile associated with the form automatically.\n0 - Disabled Does not apply a profile automatically.\r\n1 - Enabled Applies a profile automatically.")]
+        [Option("AutoProfile", Required = false, Default = (short)1, HelpText = "Sets whether to identify a scanned form and apply a profile associated with the form automatically.\n\n0 - Disabled Does not apply a profile automatically.\n1 - Enabled Applies a profile automatically.")]
         public short AutoProfile { get; set; }
 
         public void Apply(AxFiScnLib.AxFiScn scanner_control)
