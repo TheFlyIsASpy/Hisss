@@ -1,6 +1,6 @@
 ﻿namespace Hisss
 {
-    partial class MainForm
+    partial class ScanForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScanForm));
             axFiScn1 = new AxFiScnLib.AxFiScn();
             ((System.ComponentModel.ISupportInitialize)axFiScn1).BeginInit();
             SuspendLayout();

@@ -65,7 +65,7 @@ namespace Hisss
                     }catch (Exception ex) {
                         Console.WriteLine("Failed to read json configuration. If you don't have one, ignore this error. Otherwise: \n\n" +  ex.ToString());    
                     }
-                    var form = new MainForm(c);
+                    var form = new ScanForm(c);
                     return;
                 }
             });

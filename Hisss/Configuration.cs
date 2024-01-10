@@ -27,7 +27,7 @@ namespace Hisss
         [Option("format", Required = false, Default = (short)4, HelpText = "Sets the file format.\n0 - BMP Bitmap file\r\n1 - TIFF TIFF file\r\n2 - Multipage TIFF Multipage TIFF file\r\n3 - JPEG JPEG file\r\n4 - PDF PDF file\r\n5 - Multipage PDF Multipage PDF file\r\n6 - Multi Image Output Multi-image output(Black and white: TIFF file, Others: JPEG\r\nfile)\r\n7 - Auto Color Detection Auto color detection(Black and white: TIFF file, Others: JPEG\r\nfile)")]
         public short FileType { get; set; }
 
-        [Option('i', Required = false, Default = (bool)false, HelpText = "Show the progress indicator while scanning.")]
+        [Option('i', Required = false, Default = false, HelpText = "Show the progress indicator while scanning.")]
         public bool Indicator { get; set; }
 
         [Option("overwrite", Required = false, Default = (short)1, HelpText = "Sets whether or not to overwrite files.\n0 - OFF(Mode0) Does not overwrite\r\n(When file type is TIFF, JPEG or BMP without using “Image\r\nProcessing Software Option “, processes the number of sheets\r\nspecified for the ScanCount property up to the last sheet even if\r\na file with the same name exists.)\r\n1 - ON Overwrites.\r\n2 - Confirm(Mode0) Displays the confirmation message box. (Displayed even in\r\nSilentMode.)\r\n3 - OFF(Mode1) Does not overwrite. (If a file with the same name exists, aborts\r\nscanning.)\r\n4 - Confirm(Mode1) Displays the confirmation message box.\r\n(Turned to the same operation as \"3 - OFF(Mode1)\" in\r\nSilentMode.)")]
@@ -42,9 +42,12 @@ namespace Hisss
         [Option("resolution", Required = false, Default = (short)2, HelpText = "Specifies the scan resolution.\n0 - 200x200 [dpi]\r\n1 - 240x240 [dpi]\r\n2 - 300x300 [dpi]\r\n3 - 400x400 [dpi]\r\n4 - 500x500 [dpi]\r\n5 - 600x600 [dpi]\r\n6 - 700x700 [dpi]\r\n7 - 800x800 [dpi]\r\n9 - 1200x1200 [dpi]")]
         public short Resolution { get; set; }
 
-        [Option("ui", Required = false, Default = (bool)false, HelpText = "Display the source user interface (UI).")]
+        [Option("ui", Required = false, Default = false, HelpText = "Display the source user interface (UI).")]
         public bool ShowSourceUI { get; set; }
-        
+
+        [Option("AutoProfile", Required = false, Default = (short)1, HelpText = "Sets whether to identify a scanned form and apply a profile associated with the form automatically.\n0 - Disabled Does not apply a profile automatically.\r\n1 - Enabled Applies a profile automatically.")]
+        public short AutoProfile { get; set; }
+
         public void Apply(AxFiScnLib.AxFiScn scanner_control)
         {
             scanner_control.AutomaticRotateMode = AutomaticRotateMode;
@@ -56,6 +59,7 @@ namespace Hisss
             scanner_control.PixelType = PixelType;
             scanner_control.Resolution = Resolution;
             scanner_control.ShowSourceUI = ShowSourceUI;
+            scanner_control.AutoProfile = AutoProfile;
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Resources;
 using System.Windows;
 namespace Hisss
 {
-    public partial class MainForm : Form
+    public partial class ScanForm : Form
     {
-        public MainForm(Configuration config)
+        public ScanForm(Configuration config)
         {
             InitializeComponent();
             Setup_Scanner(config);
