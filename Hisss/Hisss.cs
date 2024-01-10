@@ -52,10 +52,44 @@ namespace Hisss
                     Console.WriteLine(help_text);
                 }
                 else
-                {
+                {                    
+                    
+                    if (c.LogPath == null)
+                    {
+                        c.LogPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\hisss.log";
+                    }
+                    else
+                    {
+                        try
+                        {
+                            _ = new FileInfo(c.LogPath).Directory;
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Provided LogPath was invalid. Error: " + e.Message);
+                            Console.WriteLine("Path Given: " + c.LogPath);
+                            c.LogPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\hisss.log";
+                        }
+                    }
+
+                    LogWriter lw = new LogWriter(c.LogPath);
+
                     if (c.FileName == null)
                     {
                         c.FileName = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\scan";
+                    }
+                    else
+                    {
+                        try
+                        {
+                            _ = new FileInfo(c.FileName).Directory;
+                        }
+                        catch (Exception e)
+                        {
+                            lw.Log("Provided Path and Filename is invalid, check the path and permissions. Error: " + e.Message);
+                            lw.Log("Path Given: " + c.FileName);
+                            c.FileName = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\scan";
+                        }
                     }
                     
                     try
@@ -63,9 +97,12 @@ namespace Hisss
                         string jstring = File.ReadAllText("%userprofile%\\hisss_overrides.json");
                         JsonConvert.PopulateObject(jstring, c);
                     }catch (Exception ex) {
-                        Console.WriteLine("Failed to read json configuration. If you don't have one, ignore this error. Otherwise: \n\n" +  ex.ToString());    
+                        lw.Log("Failed to read json configuration. If you don't have one, ignore this error. Otherwise, Error:\n" +  ex.ToString());    
                     }
-                    var form = new ScanForm(c);
+
+                    var form = new ScanForm(c, lw);
+                    lw.Log("Finished executing");
+                    lw.Close();
                     return;
                 }
             });
