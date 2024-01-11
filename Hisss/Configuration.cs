@@ -18,7 +18,7 @@ namespace Hisss
         [Option('h', Required = false, Default = false, HelpText = "Prints this help menu")]
         public bool help { get; set; }
 
-        [Option("log_path", Required = false, Default = null, HelpText = "(Default: %temp%\\hisss.log) Changes the path to save logs to.\nWARNING: STARLIMS reads this log file to determine if scanning is done, change in starlims if you change here.")]
+        [Option("log_path", Required = false, Default = null, HelpText = "Changes the path to save logs to.\nWARNING: STARLIMS reads this log file to determine if scanning is done, change in starlims if you change here.")]
         public string? LogPath { get; set; }
 
         [Option("automatic_rotate_mode", Required = false, Default = (short)0, HelpText = "Sets a mode for detecting the orientation of an image when an image is automatically rotated.\n0 - Standard Standard\n1 - Custom Rotation based on the reference area\n")]
@@ -35,8 +35,8 @@ namespace Hisss
 
         [Option("overwrite", Required = false, Default = (short)1, HelpText = "Sets whether or not to overwrite files.\n\n0 - OFF (Mode0) Does not overwrite\n(When file type is TIFF, JPEG or BMP without using \"Image Processing Software Option\", processes the number of sheets specified for the ScanCount property up to the last sheet even if a file with the same name exists.)\n\n1 - ON Overwrites.\n\n2 - Confirm (Mode0) Displays the confirmation message box.\n(Displayed even in SilentMode.)\n\n3 - OFF (Mode1) Does not overwrite.\n(If a file with the same name exists, aborts scanning.)\n\n4 - Confirm (Mode1) Displays the confirmation message box.\n(Turned to the same operation as \"3 - OFF (Mode1)\" in SilentMode.)")]
         public short Overwrite { get; set; }
-        
-        [Option("path", Required = false, Default = null, HelpText = "(Default: %temp%\\scan001.{filetype}) Sets the path and file name for storing the image.\n(Don't include extension in your argument only filename)")]
+
+        [Option("path", Required = false, Default = null, HelpText = "Full output path and filename for the resulting scan. (Dont include extension on filename)")]
         public string? FileName { get; set; }
 
         [Option("pixel_type", Required = false, Default = (short)1, HelpText = "Sets the pixel type.\n0 - Black & White Binary (Black and White)\n1 - Grayscale Grayscale\n2 - RGB RGB color\n3 - Automatic Auto color detection\n4 - SwitchByCodeSheet Switching by code sheets")]
