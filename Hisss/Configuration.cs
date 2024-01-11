@@ -39,6 +39,9 @@ namespace Hisss
         [Option("path", Required = false, Default = null, HelpText = "Full output path and filename for the resulting scan. (Dont include extension on filename)")]
         public string? FileName { get; set; }
 
+        [Option("file_counter", Required = false, Default = 1, HelpText = "\n-2 - a file serial number is not set for the file name, and only the file name is used.\n0 to 99999999 - sets the starting number for the serial number on the file")]
+        public int FileCounterEx { get; set; }
+
         [Option("pixel_type", Required = false, Default = (short)1, HelpText = "Sets the pixel type.\n0 - Black & White Binary (Black and White)\n1 - Grayscale Grayscale\n2 - RGB RGB color\n3 - Automatic Auto color detection\n4 - SwitchByCodeSheet Switching by code sheets")]
         public short PixelType { get; set; }
         
@@ -48,8 +51,14 @@ namespace Hisss
         [Option("ui", Required = false, Default = false, HelpText = "Display the full driver user interface to scan.")]
         public bool ShowSourceUI { get; set; }
 
-        [Option("AutoProfile", Required = false, Default = (short)1, HelpText = "Sets whether to identify a scanned form and apply a profile associated with the form automatically.\n\n0 - Disabled Does not apply a profile automatically.\n1 - Enabled Applies a profile automatically.")]
+        [Option("auto_profile", Required = false, Default = (short)1, HelpText = "Sets whether to identify a scanned form and apply a profile associated with the form automatically.\n\n0 - Disabled Does not apply a profile automatically.\n1 - Enabled Applies a profile automatically.")]
         public short AutoProfile { get; set; }
+
+        [Option("continuous", Required = false, Default = false, HelpText = "Activates continuous scanning")]
+        public bool ScanContinue { get; set; }
+
+        [Option("continuous_mode", Required = false, Default = (short)1, HelpText = "Sets continuous scanning mode.\n0 - Manual\n1 - Automatic")]
+        public short ScanContinueMode { get; set; }
 
         public void Apply(AxFiScnLib.AxFiScn scanner_control)
         {
@@ -63,6 +72,9 @@ namespace Hisss
             scanner_control.Resolution = Resolution;
             scanner_control.ShowSourceUI = ShowSourceUI;
             scanner_control.AutoProfile = AutoProfile;
+            scanner_control.FileCounterEx = FileCounterEx;
+            scanner_control.ScanContinue = ScanContinue;
+            scanner_control.ScanContinueMode = ScanContinueMode;
         }
     }
 }

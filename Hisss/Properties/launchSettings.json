@@ -1,11 +1,11 @@
 {
   "profiles": {
     "Hisss": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "--continuous --file_counter 7"
     },
     "Arguments": {
-      "commandName": "Project",
-      "commandLineArgs": "-h"
+      "commandName": "Project"
     }
   }
 }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Hisss
 {
-    public class LogWriter
+    public static class LogWriter
     {
-        private string path;
-        private StreamWriter sw;
-        public LogWriter(string path)
+        private static string path;
+        private static StreamWriter sw;
+        public static void Initialize(string log_output_path)
         {
-            this.path = path;
+            path = log_output_path;
 
             if (File.Exists(path))
             {
@@ -25,12 +25,12 @@ namespace Hisss
             sw.WriteLine("Logger Initialized");
         }
 
-        public void Log(string m)
+        public static void Log(string m)
         {
             sw.WriteLine(m);
         }
 
-        public void Close()
+        public static void Close()
         {
             sw.Close();
         }

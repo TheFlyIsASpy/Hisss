@@ -53,13 +53,13 @@ namespace Hisss
                     return;
                 }
 
-                LogWriter lw = BuildLogWriter(c);
-                CheckOutputPath(c, lw);
-                ReadConfigJson(c, lw);
+                BuildLogWriter(c);
+                CheckOutputPath(c);
+                ReadConfigJson(c);
 
-                var form = new ScanForm(c, lw);
-                lw.Log("Finished executing");
-                lw.Close();
+                var form = new ScanForm(c);
+                LogWriter.Log("Finished executing");
+                LogWriter.Close();
                 return;
             });
 
@@ -76,7 +76,7 @@ namespace Hisss
             });
         }
 
-        private static void ReadConfigJson(Configuration c, LogWriter lw)
+        private static void ReadConfigJson(Configuration c)
         {
             try
             {
@@ -85,15 +85,15 @@ namespace Hisss
             }
             catch (Exception ex)
             {
-                lw.Log("Failed to read json configuration. If you don't have one, ignore this error. Otherwise, Error:\n" + ex.ToString());
+                LogWriter.Log("Failed to read json configuration. If you don't have one, ignore this error. Otherwise, Error:\n" + ex.ToString());
             }
         }
 
-        private static void CheckOutputPath(Configuration c, LogWriter lw)
+        private static void CheckOutputPath(Configuration c)
         {
             if (c.FileName == null)
             {
-                lw.Log("Defaulting output path to: " + DEFAULT_OUTPUT_PATH);
+                LogWriter.Log("Defaulting output path to: " + DEFAULT_OUTPUT_PATH);
                 c.FileName = DEFAULT_OUTPUT_PATH;
             }
             else
@@ -104,15 +104,15 @@ namespace Hisss
                 }
                 catch (Exception e)
                 {
-                    lw.Log("Provided Path and Filename is invalid, check the path and permissions. Error: " + e.Message);
-                    lw.Log("Path Given: " + c.FileName);
-                    lw.Log("Defaulting to: " + DEFAULT_OUTPUT_PATH);
+                    LogWriter.Log("Provided Path and Filename is invalid, check the path and permissions. Error: " + e.Message);
+                    LogWriter.Log("Path Given: " + c.FileName);
+                    LogWriter.Log("Defaulting to: " + DEFAULT_OUTPUT_PATH);
                     c.FileName = DEFAULT_OUTPUT_PATH;
                 }
             }
         }
 
-        private static LogWriter BuildLogWriter(Configuration c)
+        private static void BuildLogWriter(Configuration c)
         {
             if (c.LogPath == null)
             {
@@ -130,12 +130,11 @@ namespace Hisss
                     Console.WriteLine("Provided LogPath was invalid. Error: " + e.Message);
                     Console.WriteLine("Path Given: " + c.LogPath);
                     Console.WriteLine("Defaulting log path to: " + DEFAULT_LOG_PATH);
-                    c.LogPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\hisss.log";
+                    c.LogPath = DEFAULT_LOG_PATH;
                 }
             }
 
-            LogWriter lw = new LogWriter(c.LogPath);
-            return lw;
+            LogWriter.Initialize(c.LogPath);
         }
 
         private static void PrintHelp(ParserResult<Configuration> parser_result)
