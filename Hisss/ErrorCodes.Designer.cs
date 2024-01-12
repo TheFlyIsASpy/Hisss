@@ -290,7 +290,7 @@ namespace Hisss {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data source open error, device may not be on or twain  may not be installed or in use by another app.
+        ///   Looks up a localized string similar to Data source open error, device may not be on, twain may not be installed, or scanner in use by another app.
         /// </summary>
         public static string _26 {
             get {

@@ -3,8 +3,9 @@
 
 using CommandLine;
 using CommandLine.Text;
-using Newtonsoft.Json;
-using System.Runtime.InteropServices;
+using Hisss.Properties;
+using Microsoft.Win32;
+using System.Diagnostics;
 
 namespace Hisss
 {
@@ -13,7 +14,8 @@ namespace Hisss
 
         static string DEFAULT_LOG_PATH = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\hisss.log";
         static string DEFAULT_OUTPUT_PATH = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\hisss_scan";
-        const string VERSION = "1.1.0";
+        static string DEFAULT_OVERRIDES_PATH = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\hisss_overrides.json";
+        const string VERSION = "2.0.0";
 
         [STAThread]
         static void Main(String[] args)
@@ -54,6 +56,11 @@ namespace Hisss
                 }
 
                 BuildLogWriter(c);
+                if (!CheckRuntime(c))
+                {
+                    LogWriter.Log("Runtime failed to validate or install, exiting");
+                    return;
+                }
                 CheckOutputPath(c);
                 ReadConfigJson(c);
 
@@ -76,16 +83,72 @@ namespace Hisss
             });
         }
 
+        private static bool CheckRuntime(Configuration c)
+        {
+            string InstallReg = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Fujitsu Scanner Control Runtime x64";
+
+            LogWriter.Log("Checking for runtime registry key");
+            if (Registry.LocalMachine.OpenSubKey(InstallReg) != null)
+            {
+                LogWriter.Log("Runtime found");
+                return true;
+            }
+
+            LogWriter.Log("Runtime not found");
+            LogWriter.Log("Downloading install files");
+            DirectoryInfo d = System.IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\eng");
+            File.WriteAllBytes(d.FullName + "\\LICENSE.TXT", Resources.LICENSE);
+            File.WriteAllBytes(d.FullName + "\\README.TXT", Resources.README);
+            File.WriteAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\FiScn.ini", Resources.FiScn);
+            File.WriteAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\FiScnRun.exe", Resources.FiScnRun);
+
+            LogWriter.Log("Starting silent install");
+            Process installer = new Process();
+            installer.StartInfo.FileName = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\FiScnRun.exe";
+            installer.StartInfo.ArgumentList.Add("-silent");
+            installer.StartInfo.WorkingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp";
+            installer.StartInfo.UseShellExecute = true;
+            installer.StartInfo.Verb = "runas";
+            installer.Start();
+            installer.WaitForExit(20000);
+            
+            LogWriter.Log("Install process finished");
+            LogWriter.Log("Cleaning up install files");
+            File.Delete(d.FullName + "\\LICENSE.TXT");
+            File.Delete(d.FullName + "\\README.TXT");
+            File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\FiScn.ini");
+            File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\FiScnRun.exe");
+
+            if (installer.ExitCode != 0)
+            {
+                LogWriter.Log("Install exited with an error: " +  installer.ExitCode);
+                return false;
+            }
+
+            LogWriter.Log("Install successful");
+            return true;
+        }
+
         private static void ReadConfigJson(Configuration c)
         {
-            try
+            if (c.OverridesPath == null)
             {
-                string jstring = File.ReadAllText("%userprofile%\\hisss_overrides.json");
-                JsonConvert.PopulateObject(jstring, c);
+                LogWriter.Log("Defaulting overrides path to: " + DEFAULT_OVERRIDES_PATH);
+                c.OverridesPath = DEFAULT_OVERRIDES_PATH;
             }
-            catch (Exception ex)
+            else
             {
-                LogWriter.Log("Failed to read json configuration. If you don't have one, ignore this error. Otherwise, Error:\n" + ex.ToString());
+                try
+                {
+                    _ = new FileInfo(c.OverridesPath).Directory;
+                }
+                catch (Exception e)
+                {
+                    LogWriter.Log("Provided Path and Filename is invalid, check the path and permissions. Error: " + e.Message);
+                    LogWriter.Log("Path Given: " + c.OverridesPath);
+                    LogWriter.Log("Defaulting to: " + DEFAULT_OVERRIDES_PATH);
+                    c.OverridesPath = DEFAULT_OVERRIDES_PATH;
+                }
             }
         }
 

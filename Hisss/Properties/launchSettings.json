@@ -2,7 +2,7 @@
   "profiles": {
     "Hisss": {
       "commandName": "Project",
-      "commandLineArgs": "--continuous --file_counter 7"
+      "commandLineArgs": "--path C:\\Users\\LizardDev\\Desktop\\hisss_scan --log_path C:\\Users\\LizardDev\\Desktop\\hisss.log"
     },
     "Arguments": {
       "commandName": "Project"

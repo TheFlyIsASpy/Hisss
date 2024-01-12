@@ -21,6 +21,9 @@ namespace Hisss
         [Option("log_path", Required = false, Default = null, HelpText = "Changes the path to save logs to.\nWARNING: STARLIMS reads this log file to determine if scanning is done, change in starlims if you change here.")]
         public string? LogPath { get; set; }
 
+        [Option("overrides_path", Required = false, Default = null, HelpText = "Changes the path to the hisss_overrides.json file")]
+        public string? OverridesPath { get; set; }
+
         [Option("automatic_rotate_mode", Required = false, Default = (short)0, HelpText = "Sets a mode for detecting the orientation of an image when an image is automatically rotated.\n0 - Standard Standard\n1 - Custom Rotation based on the reference area\n")]
         public short AutomaticRotateMode { get; set; }
         

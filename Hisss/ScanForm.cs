@@ -12,17 +12,18 @@ namespace Hisss
     {
         public ScanForm(Configuration config)
         {
+            LogWriter.Log("Initializing scanner control form");
             InitializeComponent();
             Setup_Scanner(config);
             Scan();
         }
-        private void Setup_Scanner(Configuration scanner_config)
+        private void Setup_Scanner(Configuration config)
         {
             LogWriter.Log("Opening scanner...");
             axFiScn1.OpenScanner2(this.Handle.ToInt32());
 
             LogWriter.Log("Applying arguments and default settings to scanner...");
-            scanner_config.Apply(axFiScn1);
+            config.Apply(axFiScn1);
 
             LogWriter.Log("Adding scanner events to scanner");
             axFiScn1.ScanToFile += ScannerEvents.ScanToFile;

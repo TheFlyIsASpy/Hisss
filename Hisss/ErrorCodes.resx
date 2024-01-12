@@ -203,7 +203,7 @@ cable, etc.)</value>
     <value>Source manager load error, is TWAIN installed?</value>
   </data>
   <data name="26" xml:space="preserve">
-    <value>Data source open error, device may not be on or twain  may not be installed or in use by another app</value>
+    <value>Data source open error, device may not be on, twain may not be installed, or scanner in use by another app</value>
   </data>
   <data name="27" xml:space="preserve">
     <value>Data source enable error, scanner may be busy or cover is on</value>
