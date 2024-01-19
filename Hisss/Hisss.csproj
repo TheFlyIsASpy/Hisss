@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>smollizard.ico</ApplicationIcon>
   </PropertyGroup>
 	
   <ItemGroup>
@@ -26,6 +27,10 @@
       <Isolated>false</Isolated>
       <EmbedInteropTypes>false</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Content Include="smollizard.ico" />
   </ItemGroup>
 
   <ItemGroup>
