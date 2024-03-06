@@ -25,8 +25,22 @@ namespace Hisss
             LogWriter.Log("Applying arguments and default settings to scanner...");
             config.Apply(axFiScn1);
 
-            LogWriter.Log("Adding scanner events to scanner");
+            LogWriter.Log("Adding events to scanner...");
             axFiScn1.ScanToFile += ScannerEvents.ScanToFile;
+            axFiScn1.DetectBarcode += ScannerEvents.DetectBarcode;
+
+            LogWriter.Log("GUID: " + config.guid.ToString());
+            int extIndex = axFiScn1.FileName.IndexOf(".");
+            if (extIndex != -1)
+            {
+                string ext = axFiScn1.FileName.Substring(axFiScn1.FileName.IndexOf("."));
+                string filename = axFiScn1.FileName.Replace(ext, "_" + config.guid.ToString() + "_" + ext);
+                axFiScn1.FileName = filename;
+            }
+            else
+            {
+                axFiScn1.FileName = axFiScn1.FileName + "_" + config.guid.ToString() + "_";
+            }       
         }
 
         private void Scan()
@@ -47,7 +61,7 @@ namespace Hisss
                 LogWriter.Log("Generating error popup");
                 MessageBox.Show(ErrorMessage + "\nErrorCode: 0x" + axFiScn1.ErrorCode.ToString("X8"), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
-
+            
             LogWriter.Log("Closing scanner");
             axFiScn1.CloseScanner(this.Handle.ToInt32());
         }

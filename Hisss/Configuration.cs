@@ -51,7 +51,7 @@ namespace Hisss
         [Option("resolution", Required = false, Default = (short)2, HelpText = "Specifies the scan resolution.\n0 - 200x200 [dpi]\n1 - 240x240 [dpi]\n2 - 300x300 [dpi]\n3 - 400x400 [dpi]\n4 - 500x500 [dpi]\n5 - 600x600 [dpi]\n6 - 700x700 [dpi]\n7 - 800x800 [dpi]\n9 - 1200x1200 [dpi]")]
         public short Resolution { get; set; }
 
-        [Option("ui", Required = false, Default = false, HelpText = "Display the full driver user interface to scan.")]
+        [Option("ui", Required = false, Default = false, HelpText = "Display the full driver user interface to scan")]
         public bool ShowSourceUI { get; set; }
 
         [Option("auto_profile", Required = false, Default = (short)1, HelpText = "Sets whether to identify a scanned form and apply a profile associated with the form automatically.\n\n0 - Disabled Does not apply a profile automatically.\n1 - Enabled Applies a profile automatically.")]
@@ -62,6 +62,35 @@ namespace Hisss
 
         [Option("continuous_mode", Required = false, Default = (short)1, HelpText = "Sets continuous scanning mode.\n0 - Manual\n1 - Automatic")]
         public short ScanContinueMode { get; set; }
+
+        [Option('b', Required = false, Default = false, HelpText = "Activates barcode detection")]
+        public bool BarcodeDetection { get; set; }
+
+        [Option("barcode_type", Required = false, Default = (short)512, HelpText = "Sets the barcode type.\n\nFor multiple types, add the values together\n\n1 - EAN 8\n2 - EAN 13\n4 - Code 3 of 9\n8 - Code 128\n16 - ITF\n32 - UPC-A\n64 - Codabar\n128 - PDF417\n256 - QR code\n512 - Data Matrix")]
+        public short BarcodeType { get; set; }
+
+        [Option("barcode_direction", Required = false, Default = (short)2, HelpText = "Sets the direction of the barcode that is detected.\n\n0 - Horizontal Horizontal direction\n1 - Vertical Vertical direction\n2 - Horizontal & Vertical Horizontal and vertical directions")]
+        public short BarcodeDirection { get; set; }
+
+        [Option("barcode_limit", Required = false, Default = (short)1, HelpText = "Sets the maximum number of barcodes to detect\nValue in the range from 1 to 20")]
+        public short BarcodeMaxSearchPriorities { get; set; }
+
+        [Option("barcode_not_found", Required = false, Default = false, HelpText = "Enables or Disables notification for not finding a barcode")]
+        public bool BarcodeNotDetectionNotice { get; set; }
+
+        [Option("barcode_region_left", Required = false, Default = (short)0, HelpText = "Sets the left edge position of the barcode detection area.\n 0 is the left edge of the page")]
+        public float BarcodeRegionLeft { get; set; }
+
+        [Option("barcode_region_top", Required = false, Default = (short)0, HelpText = "Sets the top edge position of the barcode detection area.\n 0 is the top edge of the page")]
+        public float BarcodeRegionTop { get; set; }
+
+        [Option("barcode_region_length", Required = false, Default = (short)0, HelpText = "Sets the vertical length of the barcode detection area.\n 0 is the entire page")]
+        public float BarcodeRegionLength { get; set; }
+
+        [Option("barcode_region_width", Required = false, Default = (short)0, HelpText = "Sets the horizonal width of the barcode detection area.\n 0 is the entire page")]
+        public float BarcodeRegionWidth { get; set; }
+
+        public Guid guid = Guid.NewGuid();
 
         public void Apply(AxFiScnLib.AxFiScn scanner_control)
         {
@@ -78,6 +107,15 @@ namespace Hisss
             scanner_control.FileCounterEx = FileCounterEx;
             scanner_control.ScanContinue = ScanContinue;
             scanner_control.ScanContinueMode = ScanContinueMode;
+            scanner_control.BarcodeDetection = BarcodeDetection;
+            scanner_control.BarcodeType = BarcodeType;
+            scanner_control.BarcodeDirection = BarcodeDirection;
+            scanner_control.BarcodeMaxSearchPriorities = BarcodeMaxSearchPriorities;
+            scanner_control.BarcodeNotDetectionNotice = BarcodeNotDetectionNotice;
+            scanner_control.BarcodeRegionLeft = BarcodeRegionLeft;
+            scanner_control.BarcodeRegionTop = BarcodeRegionTop;
+            scanner_control.BarcodeRegionLength = BarcodeRegionLength;
+            scanner_control.BarcodeRegionWidth = BarcodeRegionWidth;
         }
     }
 }

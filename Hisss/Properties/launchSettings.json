@@ -2,7 +2,7 @@
   "profiles": {
     "Hisss": {
       "commandName": "Project",
-      "commandLineArgs": "--path C:\\Users\\LizardDev\\Desktop\\hisss_scan --log_path C:\\Users\\LizardDev\\Desktop\\hisss.log"
+      "commandLineArgs": "--path C:\\Users\\LizardDev\\Desktop\\hisss_scan --log_path C:\\Users\\LizardDev\\Desktop\\hisss.log --b --barcode_type 520 --continuous --barcode_limit 2"
     },
     "Arguments": {
       "commandName": "Project"

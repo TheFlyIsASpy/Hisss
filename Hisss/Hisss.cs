@@ -63,7 +63,7 @@ namespace Hisss
                 }
                 CheckOutputPath(c);
                 ReadConfigJson(c);
-
+                
                 var form = new ScanForm(c);
                 LogWriter.Log("Finished executing");
                 LogWriter.Close();
@@ -196,7 +196,8 @@ namespace Hisss
                     c.LogPath = DEFAULT_LOG_PATH;
                 }
             }
-
+            string ext = c.LogPath.Substring(c.LogPath.IndexOf("."));
+            c.LogPath = c.LogPath.Replace(ext, "_" + c.guid.ToString() + ext);
             LogWriter.Initialize(c.LogPath);
         }
 
