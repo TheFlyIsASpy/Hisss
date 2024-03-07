@@ -55,6 +55,13 @@ namespace Hisss
                     return;
                 }
 
+                if (c.guid.Equals(""))
+                {
+                    c.guid = Guid.NewGuid().ToString();
+                }
+
+                c.guid = c.guid.Trim();
+
                 BuildLogWriter(c);
                 if (!CheckRuntime(c))
                 {
@@ -197,7 +204,7 @@ namespace Hisss
                 }
             }
             string ext = c.LogPath.Substring(c.LogPath.IndexOf("."));
-            c.LogPath = c.LogPath.Replace(ext, "_" + c.guid.ToString() + ext);
+            c.LogPath = c.LogPath.Replace(ext, "_" + c.guid + ext);
             LogWriter.Initialize(c.LogPath);
         }
 

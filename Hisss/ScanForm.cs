@@ -29,17 +29,17 @@ namespace Hisss
             axFiScn1.ScanToFile += ScannerEvents.ScanToFile;
             axFiScn1.DetectBarcode += ScannerEvents.DetectBarcode;
 
-            LogWriter.Log("GUID: " + config.guid.ToString());
+            LogWriter.Log("GUID: " + config.guid);
             int extIndex = axFiScn1.FileName.IndexOf(".");
             if (extIndex != -1)
             {
                 string ext = axFiScn1.FileName.Substring(axFiScn1.FileName.IndexOf("."));
-                string filename = axFiScn1.FileName.Replace(ext, "_" + config.guid.ToString() + "_" + ext);
+                string filename = axFiScn1.FileName.Replace(ext, "_" + config.guid + "_" + ext);
                 axFiScn1.FileName = filename;
             }
             else
             {
-                axFiScn1.FileName = axFiScn1.FileName + "_" + config.guid.ToString() + "_";
+                axFiScn1.FileName = axFiScn1.FileName + "_" + config.guid + "_";
             }       
         }
 

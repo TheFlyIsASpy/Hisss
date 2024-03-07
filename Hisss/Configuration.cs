@@ -90,7 +90,8 @@ namespace Hisss
         [Option("barcode_region_width", Required = false, Default = (short)0, HelpText = "Sets the horizonal width of the barcode detection area.\n 0 is the entire page")]
         public float BarcodeRegionWidth { get; set; }
 
-        public Guid guid = Guid.NewGuid();
+        [Option("guid", Required = false, Default = "", HelpText = "Sets the GUID identifier for the scan")]
+        public string guid { get; set; }
 
         public void Apply(AxFiScnLib.AxFiScn scanner_control)
         {
