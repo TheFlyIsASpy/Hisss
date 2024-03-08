@@ -15,7 +15,7 @@ namespace Hisss
         static string DEFAULT_LOG_PATH = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\hisss.log";
         static string DEFAULT_OUTPUT_PATH = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\hisss_scan";
         static string DEFAULT_OVERRIDES_PATH = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\hisss_overrides.json";
-        const string VERSION = "2.1.0";
+        const string VERSION = "2.1.2";
 
         [STAThread]
         static void Main(String[] args)
@@ -23,7 +23,7 @@ namespace Hisss
 
             ApplicationConfiguration.Initialize();
 
-            string version = "2.1.0";
+            string version = "2.1.2";
             
             for(int i = 0; i < args.Length; i++) 
             {
