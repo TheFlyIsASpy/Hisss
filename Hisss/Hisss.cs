@@ -203,8 +203,17 @@ namespace Hisss
                     c.LogPath = DEFAULT_LOG_PATH;
                 }
             }
-            string ext = c.LogPath.Substring(c.LogPath.IndexOf("."));
-            c.LogPath = c.LogPath.Replace(ext, "_" + c.guid + ext);
+            int ext_index = c.LogPath.IndexOf(".");
+            string ext = ".log";
+            if (ext_index < 0)
+            {
+                c.LogPath = c.LogPath + "_" + c.guid + ext;
+            }
+            else
+            {
+                ext = c.LogPath.Substring(ext_index);
+                c.LogPath = c.LogPath.Replace(ext, "_" + c.guid + ext);
+            }
             LogWriter.Initialize(c.LogPath);
         }
 
