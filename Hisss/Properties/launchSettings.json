@@ -2,7 +2,7 @@
   "profiles": {
     "Hisss": {
       "commandName": "Project",
-      "commandLineArgs": "--path \"C:\\\\Users\\\\LizardDev\\\\Documents\\\\folder with spaces\\\\hisss\" --log_path \"C:\\\\Users\\\\LizardDev\\\\Documents\\\\folder with spaces\\\\hisss\" --b --barcode_type 520 --continuous --barcode_limit 2 --guid \"test guid with spaces\""
+      "commandLineArgs": "--path \"C:\\\\Users\\\\nrsheridan\\\\Documents\\\\Folder With Spaces\\\\hisss\" --log_path \"C:\\\\Users\\\\nrsheridan\\\\Documents\\\\Folder With Spaces\\\\hisss.log\" --ui"
     },
     "Arguments": {
       "commandName": "Project"

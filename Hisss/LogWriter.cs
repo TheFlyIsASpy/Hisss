@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Hisss
+﻿namespace Hisss
 {
     public static class LogWriter
     {
         private static string path;
         private static StreamWriter sw;
-        public static void Initialize(string log_output_path)
+        public static bool Initialize(string log_output_path)
         {
             path = log_output_path;
 
@@ -19,10 +13,17 @@ namespace Hisss
                 File.Delete(path);
             }
 
-            sw = File.CreateText(path);
+            try
+            {
+                sw = File.CreateText(path);
+            }catch (Exception ex)
+            {
+                return false;
+            }
 
             sw.AutoFlush = true;
             sw.WriteLine("Logger Initialized");
+            return true;
         }
 
         public static void Log(string m)

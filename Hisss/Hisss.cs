@@ -62,7 +62,11 @@ namespace Hisss
 
                 c.guid = c.guid.Trim();
 
-                BuildLogWriter(c);
+                if (!BuildLogWriter(c))
+                {
+                    return;
+                }
+
                 if (!CheckRuntime(c))
                 {
                     LogWriter.Log("Runtime failed to validate or install, exiting");
@@ -182,7 +186,7 @@ namespace Hisss
             }
         }
 
-        private static void BuildLogWriter(Configuration c)
+        private static bool BuildLogWriter(Configuration c)
         {
             if (c.LogPath == null)
             {
@@ -203,18 +207,31 @@ namespace Hisss
                     c.LogPath = DEFAULT_LOG_PATH;
                 }
             }
-            int ext_index = c.LogPath.IndexOf(".");
-            string ext = ".log";
-            if (ext_index < 0)
+
+            int ext_index = -1;
+            for (int i = c.LogPath.Length - 1; i >= 0; i--)
             {
-                c.LogPath = c.LogPath + "_" + c.guid + ext;
+                char ch = c.LogPath[i];
+                if (ch == '.')
+                {
+                    ext_index = i;
+                }
+                if (ch == Path.AltDirectorySeparatorChar || ch == Path.DirectorySeparatorChar)
+                    break;
             }
-            else
+            string ext = "";
+            if(ext_index > 0)
             {
                 ext = c.LogPath.Substring(ext_index);
                 c.LogPath = c.LogPath.Replace(ext, "_" + c.guid + ext);
             }
-            LogWriter.Initialize(c.LogPath);
+            else
+            {
+                ext = ".log";
+                c.LogPath = c.LogPath + "_" + c.guid + ext;
+            }
+
+            return LogWriter.Initialize(c.LogPath);
         }
 
         private static void PrintHelp(ParserResult<Configuration> parser_result)
