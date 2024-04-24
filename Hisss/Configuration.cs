@@ -27,7 +27,7 @@ namespace Hisss
         [Option("automatic_rotate_mode", Required = false, Default = (short)0, HelpText = "Sets a mode for detecting the orientation of an image when an image is automatically rotated.\n0 - Standard Standard\n1 - Custom Rotation based on the reference area\n")]
         public short AutomaticRotateMode { get; set; }
         
-        [Option("feed_method", Required = false, Default = (short)1, HelpText = "Sets the paper feed method.\n0 - Flatbed \n1 - ADF (Face scan)")]
+        [Option("feed_method", Required = false, Default = (short)2, HelpText = "Sets the paper feed method.\n0 - Flatbed \n1 - ADF (Face scan)")]
         public short PaperSupply { get; set; }
 
         [Option("format", Required = false, Default = (short)4, HelpText = "Sets the file format.\n0 - BMP Bitmap file\n1 - TIFF file\n2 - Multipage TIFF file\n3 - JPEG file\n4 - PDF file\n5 - Multipage PDF file\n6 - Multi Image Output\n(Black and white: TIFF file, Others: JPEG file)\n7 - Auto Color Detection\n(Black and white: TIFF file, Others: JPEG file)")]
@@ -78,17 +78,26 @@ namespace Hisss
         [Option("barcode_not_found", Required = false, Default = false, HelpText = "Enables or Disables notification for not finding a barcode")]
         public bool BarcodeNotDetectionNotice { get; set; }
 
-        [Option("barcode_region_left", Required = false, Default = (short)0, HelpText = "Sets the left edge position of the barcode detection area.\n 0 is the left edge of the page")]
+        [Option("barcode_region_left", Required = false, Default = (float)0, HelpText = "Sets the left edge position of the barcode detection area.\n 0 is the left edge of the page")]
         public float BarcodeRegionLeft { get; set; }
 
-        [Option("barcode_region_top", Required = false, Default = (short)0, HelpText = "Sets the top edge position of the barcode detection area.\n 0 is the top edge of the page")]
+        [Option("barcode_region_top", Required = false, Default = (float)0, HelpText = "Sets the top edge position of the barcode detection area.\n 0 is the top edge of the page")]
         public float BarcodeRegionTop { get; set; }
 
-        [Option("barcode_region_length", Required = false, Default = (short)0, HelpText = "Sets the vertical length of the barcode detection area.\n 0 is the entire page")]
+        [Option("barcode_region_length", Required = false, Default = (float)0, HelpText = "Sets the vertical length of the barcode detection area.\n 0 is the entire page")]
         public float BarcodeRegionLength { get; set; }
 
-        [Option("barcode_region_width", Required = false, Default = (short)0, HelpText = "Sets the horizonal width of the barcode detection area.\n 0 is the entire page")]
+        [Option("barcode_region_width", Required = false, Default = (float)0, HelpText = "Sets the horizonal width of the barcode detection area.\n 0 is the entire page")]
         public float BarcodeRegionWidth { get; set; }
+
+        [Option("BlankPageSkipSensitivity", Required = false, Default = (short)6, HelpText = "Sets the sensitivity to scan by skipping blank pages during continuous ADF scanning.")]
+        public short BlankPageSkip { get; set; }
+
+        [Option("BlankPageSkipMode", Required = false, Default = (short)0, HelpText = "Sets a criteria for detecting blank pages.\nWhen \"0 - Sensitivity\" is set, the sensitivity set for the BlankPageSkip property is used to detect blank pages.\r\nWhen \"1 - Black & White Dots Ratio\" is set, the black and white dots ratios set for the SkipBlackPage property and the SkipWhitePage property are used to detect blank pages.")]
+        public short BlankPageSkipMode { get; set; }
+
+        [Option("BlankPageOutput", Required = false, Default = (short)0, HelpText = "Sets whether blank pages are output or not when scanning. 1 - Output blank pages (must have blank page detection sensitivity set > 0/n2 - Don't output blank pages")]
+        public short BlankPageNotice { get; set; }
 
         [Option("guid", Required = false, Default = "", HelpText = "Sets the GUID identifier for the scan")]
         public string guid { get; set; }
@@ -117,6 +126,9 @@ namespace Hisss
             scanner_control.BarcodeRegionTop = BarcodeRegionTop;
             scanner_control.BarcodeRegionLength = BarcodeRegionLength;
             scanner_control.BarcodeRegionWidth = BarcodeRegionWidth;
+            scanner_control.BlankPageSkip = BlankPageSkip;
+            scanner_control.BlankPageSkipMode = BlankPageSkipMode;
+            scanner_control.BlankPageNotice = BlankPageNotice;
         }
     }
 }

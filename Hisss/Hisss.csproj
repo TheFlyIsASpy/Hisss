@@ -14,9 +14,9 @@
 	<SignManifests>true</SignManifests>
 	<ManifestCertificateThumbprint>daea2a60866e9b03f0b221f0b1d514d4ed062396</ManifestCertificateThumbprint>
   </PropertyGroup>
-    <Target Name="SignAssembly" AfterTargets="CoreCompile">
-        <Exec Command="signtool sign /sha1 daea2a60866e9b03f0b221f0b1d514d4ed062396 /fd SHA256 /t http://timestamp.sectigo.com &quot;$(TargetPath)&quot;" />
-    </Target>
+	<Target Name="SignAssembly" AfterTargets="CoreCompile">
+		<Exec Command="signtool sign /sha1 daea2a60866e9b03f0b221f0b1d514d4ed062396 /fd SHA256 /t http://timestamp.sectigo.com &quot;$(TargetPath)&quot;" />
+	</Target>
     <Target Name="CustomAfterPublish" AfterTargets="GenerateNuspec;Publish">
 		<Exec Command="D:\CSharp\Hisss\sign.bat" />
 	</Target>

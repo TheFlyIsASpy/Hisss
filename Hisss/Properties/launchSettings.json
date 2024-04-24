@@ -2,7 +2,7 @@
   "profiles": {
     "Hisss": {
       "commandName": "Project",
-      "commandLineArgs": "--path \"C:\\\\Users\\\\nrsheridan\\\\Documents\\\\Folder With Spaces\\\\hisss\" --log_path \"C:\\\\Users\\\\nrsheridan\\\\Documents\\\\Folder With Spaces\\\\hisss.log\" --ui"
+      "commandLineArgs": "--path \"C:\\\\Users\\\\nrsheridan\\\\Documents\\\\Folder With Spaces\\\\hisss\" --log_path \"C:\\\\Users\\\\nrsheridan\\\\Documents\\\\Folder With Spaces\\\\hisss.log\" -i"
     },
     "Arguments": {
       "commandName": "Project"
