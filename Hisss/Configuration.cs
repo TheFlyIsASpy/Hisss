@@ -30,7 +30,7 @@ namespace Hisss
         [Option("feed_method", Required = false, Default = (short)2, HelpText = "Sets the paper feed method.\n0 - Flatbed \n1 - ADF (Face scan)")]
         public short PaperSupply { get; set; }
 
-        [Option("format", Required = false, Default = (short)4, HelpText = "Sets the file format.\n0 - BMP Bitmap file\n1 - TIFF file\n2 - Multipage TIFF file\n3 - JPEG file\n4 - PDF file\n5 - Multipage PDF file\n6 - Multi Image Output\n(Black and white: TIFF file, Others: JPEG file)\n7 - Auto Color Detection\n(Black and white: TIFF file, Others: JPEG file)")]
+        [Option("format", Required = false, Default = (short)5, HelpText = "Sets the file format.\n0 - BMP Bitmap file\n1 - TIFF file\n2 - Multipage TIFF file\n3 - JPEG file\n4 - PDF file\n5 - Multipage PDF file\n6 - Multi Image Output\n(Black and white: TIFF file, Others: JPEG file)\n7 - Auto Color Detection\n(Black and white: TIFF file, Others: JPEG file)")]
         public short FileType { get; set; }
 
         [Option('i', Required = false, Default = false, HelpText = "Show the progress indicator while scanning.")]
