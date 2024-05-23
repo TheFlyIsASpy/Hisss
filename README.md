@@ -4,7 +4,7 @@ HISSS (Health Industry Shitty Scanner Software) is a basic command line app for 
 ## Features:
 Seemless activation of scanner through commandline with no gui or user interaction (Useful for StarLIMS and other management services)
 
-Control over most capabilities of the driver including scanner setting (WIP, but most of the useful ones) and all guis. These can be activated through command line arguments or through a configuration json file
+Control over most capabilities of the scanner driver including: qrcode and barcode detection/decoding, full silent scanning support for essentially anything you can do in paperstream capture, full error code translations into english and step by step logging in a text file, multiscanning, multipage scanning, auto formatting, and more!
 
 ## Usage:
 hisss.exe -h for all options and help
